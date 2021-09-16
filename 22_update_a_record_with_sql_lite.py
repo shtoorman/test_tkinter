@@ -56,13 +56,16 @@ def update():
     # Close Connection
     conn.close()
 
+    editor.destroy()
+
 
 # Create Edit Function to update a record
 def edit():
+    global editor
     editor = Tk()
     editor.title("Update A Record")
     editor.iconbitmap("icone.ico")
-    editor.geometry("400x600")
+    editor.geometry("400x250")
 
     # Create a database or connect to one
     conn = sqlite3.connect("address_book.db")
@@ -75,14 +78,13 @@ def edit():
 
     # Loop Thru Results
     print(records)
-    #Create Global Variables for text box names
+    # Create Global Variables for text box names
     global f_name_editor
     global l_name_editor
     global address_editor
     global city_editor
     global state_editor
     global zipcode_editor
-
 
     # Create Text Boxes
     f_name_editor = Entry(editor, width=30)
